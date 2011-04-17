@@ -1,4 +1,10 @@
 Current::Application.routes.draw do
+
+  root :to => "home#index"
+
+  match 'decision/:slug' => 'decision#create'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
