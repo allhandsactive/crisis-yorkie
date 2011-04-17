@@ -2,6 +2,10 @@
 require File.dirname(__FILE__)+'/vendor/interface-reflector/rake-like'
 # puts "\e[5;35mruby-debug\e[0m"; require 'rubygems'; require 'ruby-debug'
 
+# The purpose of this file is really just to keep in version control
+# meta-information about resources that we neither want to keep in
+# version control themselves, nor use git submodules for.
+
 # the copy-paste source for some of this is the (node.js) project fap-doc
 
 task :check do |o|
@@ -12,10 +16,21 @@ task :check do |o|
   end
 end
 
+task :"jquery-ui-zipfile" do |o|
+  o.task_class WgetTask
+  o.category "jquery"
+  o.desc 'put the zipfile in cwd'
+  o.host 'jqueryui.com'
+  o.url '/download/jquery-ui-1.8.11.custom.zip'
+  o.dest './{url_basename}'
+  o.interface { |i| i.on '-n', '--dry-run', 'dry run' }
+  o.note "now do this: unzip ./jquery-ui-1.8.11.custom.zip -d public/javascripts/"
+end
 
+false and
 task :"jquery-1.5.2-min" do |o|
   o.task_class WgetTask
-  o.category "fap-doc extras"
+  o.category "jquery"
   o.desc 'put the minified jquery in {dest}'
   o.host 'code.jquery.com'
   o.url '/jquery-1.5.2.min.js'
