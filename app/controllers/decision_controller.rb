@@ -1,5 +1,5 @@
 class DecisionController < ApplicationController
-  def index
+  def new
   end
 
   def create

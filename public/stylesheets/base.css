@@ -1,6 +1,10 @@
 * {
-  border: 0;
+  margin: 0;
   padding: 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0.65em;
 }
 
 /**
@@ -10,8 +14,8 @@
 
 body {
   border: 1px solid black;
-  margin: 50px auto 0 auto;
-  padding: 10px;
+  margin: 50px auto 100px auto;
+  padding: 10px 10px 30px 10px;
   width: 600px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -78,4 +82,15 @@ div.alternatives {
 #alternatives li span {
   position: absolute;
   margin-left: -1.3em;
+}
+
+.button-row {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.submit-button {
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0 0.5em;
 }

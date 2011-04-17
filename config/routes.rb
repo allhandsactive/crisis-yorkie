@@ -2,7 +2,9 @@ Current::Application.routes.draw do
 
   root :to => "home#index"
 
-  match 'decision/:slug' => 'decision#create'
+  post 'decision/create' => 'decision#create'
+
+  match 'decision/:slug' => 'decision#new'
 
 
   # The priority is based upon order of creation:

@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag "/javascripts/development-bundle/themes/base/jquery.ui.theme.css" %>
   <%= javascript_include_tag "js/jquery-1.4.4.min.js" %>
   <%= javascript_include_tag "js/jquery-ui-1.8.11.custom.min.js" %>
+  <%= yield :javascripts %>
   <% # javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>

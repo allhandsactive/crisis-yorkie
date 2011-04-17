@@ -1,20 +1,29 @@
+<% content_for :javascripts, javascript_include_tag("decision.js")  -%>
+<form action='create' method='post'>
 <h1>Cast Your Vote!</h1>
 
 <div class='smug-subhead'>You are casting a vote for the AHA Director Elections 1.0</div>
 
 <div class='section'>
-	<div class='alternatives'>
-		<ul id="alternatives">
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Derpa Derpa</li>
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Sherpa Doo</li>
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Who Hah</li>
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Loo Lah</li>
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Foobis J. Doobis</li>
-
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Doipus Foipus</li>
-			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Dingle Dangle</li>
-		</ul>
-	</div>
+  <div class='alternatives'>
+    <ul id="alternatives">
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexander Honkala</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexandra Glowaski</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Amanda Sari-Perez</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Josh Williams</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Katherine Nelson</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matthew Oishi</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matt Mayers</li>
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nima Khazaei</li>
+    </ul>
+  </div>
+  <div class="button-row">
+    <input class='submit-button' type="submit" value="Submit!" />
+  </div>
 </div>
 
-<p><a href='/' class='nav'>&lt;- go back to decisions list</a></p>
+
+<div class="button-row">
+  <a href='/' class='nav'>&lt;- go back to decisions list</a></p>
+</div>
+</form>
