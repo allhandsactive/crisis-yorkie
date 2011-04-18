@@ -10,9 +10,9 @@ class DecisionController < ApplicationController
       if @vote.save
         # format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
         format.html do redirect_to('/',
-          :notice => "One #{@vote.name} vote was successfully cast for " <<
-            "voting token \"#{@vote.token}\".")
-        end
+          :notice => "You successfully voted #{@vote.value.inspect} on the #{@vote.name} vote."
+        )
+          end
         # format.xml  { render :xml => @vote, :status => :created, :location => @vote }
       else
         # format.html { render :action => "new" }
