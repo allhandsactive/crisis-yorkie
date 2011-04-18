@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  voter_id: 1
+  vote_ordinal: 1
+  decision_id: 1
+  value: MyString
+
+two:
+  voter_id: 1
+  vote_ordinal: 1
+  decision_id: 1
+  value: MyString
