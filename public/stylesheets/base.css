@@ -25,11 +25,21 @@ h1 {
   text-align: center;
 }
 
+input {
+  margin-top: 3px;
+}
+
 .smug-subhead {
   font-weight: bold;
   font-style: italic;
   text-align: center;
   font-size: 1.16em;
+}
+
+ul.smaller-buttocks {
+  font-size: smaller;
+  font-weight: normal;
+  margin-top: 1em;
 }
 
 h2.common {
@@ -45,12 +55,13 @@ div.section {
 ul.ass {
   margin-left: auto;
   margin-right: auto;
-  width: 365px;
+  width: 410px;
 }
 
 a.nav {
   color: #777;
   font-style: italic;  
+  font-weight: bold;
   text-decoration: none;
 }
 

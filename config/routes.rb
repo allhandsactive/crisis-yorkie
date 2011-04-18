@@ -1,5 +1,9 @@
 Current::Application.routes.draw do
 
+  resources :votes
+
+  resources :voters
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -12,7 +16,7 @@ Current::Application.routes.draw do
 
   root :to => "home#index"
 
-  post 'decision/create' => 'decision#create'
+  post 'decision/bylaws' => 'decision#create'
 
   match 'decision/bylaws' => 'decision#bylaws'
 
