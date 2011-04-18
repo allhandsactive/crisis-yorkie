@@ -94,3 +94,14 @@ ul.alternatives li span {
   font-size: 1em;
   padding: 0 0.5em;
 }
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+}
+
+table.choice th {
+  text-align: left;
+  padding-left: 10px;
+}

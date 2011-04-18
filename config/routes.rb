@@ -14,6 +14,8 @@ Current::Application.routes.draw do
 
   post 'decision/create' => 'decision#create'
 
+  match 'decision/bylaws' => 'decision#bylaws'
+
   match 'decision/:slug' => 'decision#new'
 
 
