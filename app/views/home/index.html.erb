@@ -4,6 +4,10 @@
 
 
 <div class='section'>
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  
 	<h2 class='common'>Active Decisions</h2>
 
 	<ul class='ass'>
@@ -11,6 +15,6 @@
 	</ul>
 
 	<ul class='ass'>
-		<li>AHA Board Of Directors Election 1.0 <a href='decision/direlect-1' class='nav'>cast your vote</a></li>
+		<li>AHA Board Of Directors Election 1.0 <a href='decision/direlect-1' class='nav'>cast your vote</a> <b><i>(demo)</i></b></li>
 	</ul>
 </div>

@@ -1,13 +1,30 @@
-<form action='create' method='post'>
+<form action='/decision/bylaws' method='post'>
 <h1>Cast Your Vote!</h1>
 
-<div class='smug-subhead'>You are casting a vote for the AHA Bylaws Change April 2010</div>
+<div class='smug-subhead'>
+
+<p>
+  You are casting a vote for the AHA Bylaws Change April 2010.
+</p>
+
+  <ul class='smaller-buttocks'>
+    <li>
+      You must have a valid voting token to vote.
+    </li>
+    <li>The voting window for this vote ends at 11:59pm EST, Tues 4/19, 2011.
+    </li>
+    <li>
+      You may cast or re-cast (change) your vote any time during the voting window.</li>
+  </ul>
+
+</div>
+
 
 <br />
 <br />
 
 <p>
-	The current bylaws state under Article VI &#167; 4, b. Elections:
+  The current bylaws state under Article VI &#167; 4, b. Elections:
 </p>
 
 <br />
@@ -31,54 +48,74 @@ We propose to replace the last 6 words, so the statement reads:
 <br />
 
 
-	
+
 <div class='centered'>
 <table class='choice'><tbody>
-	
+
 <tr>
-	<td>
-		<input type='radio' name='answer' value='yes' />
-	</td>
-	<th>
-		Yes, I accept this bylaw amendment.
-	</th>
-</tr>
-	
-<tr>
-	<td>
-		<input type='radio' name='answer' value='no' />
-	</td>
-	<th>
-		No, I do not accept this bylaw amendment.
-	</th>
+  <td>
+    <input type='radio' name='vote[value]' value='yes' />
+  </td>
+  <th>
+    Yes, I accept this bylaw amendment.
+  </th>
 </tr>
 
-
 <tr>
-	<td>
-		<input type='radio' name='answer' value='abstain' checked='checked' />
-	</td>
-	<th>
-		Abstain.
-	</th>
+  <td>
+    <input type='radio' name='vote[value]' value='no' />
+  </td>
+  <th>
+    No, I do not accept this bylaw amendment.
+  </th>
 </tr>
 
-<tr><td><colspan='2'>&nbsp;</td></tr>
 
 <tr>
-	<td colspan='2'>
-	  <span class='label'>Your voting token:</span> 
-		<input name='token' size='50'/>
-	</td>
+  <td>
+    <input type='radio' name='vote[value]' value='abstain' checked='checked' />
+  </td>
+  <th>
+    Abstain.
+  </th>
+</tr>
+
+<tr><td colspan='2'>&nbsp;</td></tr>
+
+
+<% if @vote && @vote.errors.any? %>
+<tr><td colspan='2'>
+  <div id="error_explanation">
+    <h2>
+    <%= pluralize(@vote.errors.count, "error") %>
+      prohibited this vote from being saved:
+    </h2>
+    <ul>
+    <% @vote.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+</td></tr>
+<% end %>
+
+
+
+<tr>
+  <td colspan='2'>
+    <span class='label'>Your voting token:</span>
+    <input name='vote[token]' size='50'/>
+  </td>
 </tr>
 
 </tbody></table>
 </div>
 
 
-	
+
 
 <div class="button-row">
+  <input type='hidden' name='vote[name]' value="Bylaws" />
   <input class='submit-button' type="submit" value="Submit!" />
 </div>
 
