@@ -63,7 +63,7 @@ div.alternatives {
   margin: 0 auto 0 auto;
 }
 
-#alternatives {
+ul.alternatives {
   font-family: "Trebuchet MS","Arial","Helvetica","Verdana","sans-serif";
   list-style-type: none;
   margin: 0;
@@ -71,7 +71,7 @@ div.alternatives {
   /*width: 60%;*/
 }
 
-#alternatives li {
+ul.alternatives li {
   margin: 0 3px 3px 3px;
   padding: 0.4em;
   padding-left: 1.5em;
@@ -79,7 +79,7 @@ div.alternatives {
   height: 18px;
 }
 
-#alternatives li span {
+ul.alternatives li span {
   position: absolute;
   margin-left: -1.3em;
 }

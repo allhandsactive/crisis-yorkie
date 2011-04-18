@@ -1,4 +1,3 @@
 $(function() {
-	$( "#alternatives" ).sortable();
-	/* $( "#alternatives" ).disableSelection(); */
+  $('ul.alternatives').sortable().disableSelection();
 });
