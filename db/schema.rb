@@ -10,10 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418085651) do
+ActiveRecord::Schema.define(:version => 20110418154829) do
 
   create_table "decisions", :force => true do |t|
     t.string   "CreateDecisions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fuus", :force => true do |t|
+    t.string   "name"
+    t.text     "derpus"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,6 +29,22 @@ ActiveRecord::Schema.define(:version => 20110418085651) do
     t.string   "name"
     t.string   "hashed_password"
     t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "voters", :force => true do |t|
+    t.string   "email"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voter_id"
+    t.integer  "vote_ordinal"
+    t.integer  "decision_id"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
