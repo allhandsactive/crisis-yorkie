@@ -2,3 +2,7 @@ css
 development-bundle
 index.html
 js
+jquery-ui.js
+jquery-ui.min.js
+jquery.js
+jquery.min.js
