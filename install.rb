@@ -24,7 +24,8 @@ task :"jquery-ui-zipfile" do |o|
   o.url '/download/jquery-ui-1.8.11.custom.zip'
   o.dest './{url_basename}'
   o.interface { |i| i.on '-n', '--dry-run', 'dry run' }
-  o.note "now do this: unzip ./jquery-ui-1.8.11.custom.zip -d public/javascripts/"
+  o.note "now do this: unzip ./jquery-ui-1.8.11.custom.zip -d public/javascripts/"+
+    "\nand do this also (@todo)  rails generate jquery:install --ui --version 1.5.2"
 end
 
 false and
