@@ -1,7 +1,8 @@
 class CreateDecisions < ActiveRecord::Migration
   def self.up
     create_table :decisions do |t|
-      t.string name
+      t.string :name
+      t.string :intern
       t.timestamps
     end
   end

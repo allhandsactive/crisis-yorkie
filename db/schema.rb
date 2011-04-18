@@ -13,14 +13,8 @@
 ActiveRecord::Schema.define(:version => 20110418154829) do
 
   create_table "decisions", :force => true do |t|
-    t.string   "CreateDecisions"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "fuus", :force => true do |t|
     t.string   "name"
-    t.text     "derpus"
+    t.string   "intern"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
