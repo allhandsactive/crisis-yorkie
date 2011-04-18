@@ -1,5 +1,7 @@
 Current::Application.routes.draw do
 
+  resources :users
+
   root :to => "home#index"
 
   post 'decision/create' => 'decision#create'
