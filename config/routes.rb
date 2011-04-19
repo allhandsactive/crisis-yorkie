@@ -1,8 +1,12 @@
 Current::Application.routes.draw do
+  
+  root :to => "home#index"
 
+  resources :decisions
   resources :votes
-
   resources :voters
+  resources :users
+  
 
   get 'admin' => 'admin#index'
 
@@ -12,15 +16,13 @@ Current::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  resources :users
 
-  root :to => "home#index"
 
-  post 'decision/bylaws' => 'decision#create'
+  # post 'decision/bylaws' => 'decision#create'
 
-  match 'decision/bylaws' => 'decision#bylaws'
+  # match 'decision/bylaws' => 'decision#bylaws'
 
-  match 'decision/:slug' => 'decision#new'
+  # match 'decision/:slug' => 'decision#new'
 
 
   # The priority is based upon order of creation:

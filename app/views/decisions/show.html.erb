@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @decision.name %>
+</p>
+
+<p>
+  <b>Intern:</b>
+  <%= @decision.intern %>
+</p>
+
+<p>
+  <b>Open at:</b>
+  <%= @decision.open_at %>
+</p>
+
+<p>
+  <b>Closed at:</b>
+  <%= @decision.closed_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_decision_path(@decision) %> |
+<%= link_to 'Back', decisions_path %>
