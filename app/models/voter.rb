@@ -1,4 +1,7 @@
 class Voter < ActiveRecord::Base
+
+  has_many :votes
+
   class << self
     attr_accessor :ui_fields
   end

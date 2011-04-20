@@ -1,4 +1,4 @@
-<form action='/decision/<%= @decision.intern %>' method='post'>
+<form action='/decision/<%= @decision.intern %>' method='post' id='the-form' >
 <% content_for :javascripts, javascript_include_tag("decision.js")  -%>
 <h1>Cast Your Vote!</h1>
 
@@ -28,7 +28,7 @@
 <div class='section'>
   <div class='alternatives'>
     <% if @alternatives.any? %>
-      <ul class="alternatives">
+      <ul class="alternatives" data-form-name='vote[value]' >
         <% @alternatives.each do |alt| %>
           <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span class='ord'><%= alt.random_ordinal_index %>.</span><span class="label"><%= alt.name %></span></li>
         <% end %>

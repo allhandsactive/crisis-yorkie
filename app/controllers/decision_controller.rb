@@ -10,19 +10,38 @@ class DecisionController < ApplicationController
     @vote = Vote.new(params[:vote]) # "token" | "human_hash"
     @vote.question_type = @decision.question_type || :yes_no_abstain # @todo
     @vote.decision_intern = @decision.intern
+    @vote.parse_value
     if @vote.save
-      msg = "You successfully voted #{@vote.value.inspect} on the #{@vote.name} vote."
+      msg = [success_msg, again_msg, public_identifier_msg].compact.join('  ')
       respond_to { |f| f.html { redirect_to('/', :notice => msg) } }
     else
       respond_to { |f| f.html { render_form } }
     end
   end
 private
+  def success_msg
+    dv = @vote && @vote.display_value or return nil
+    "You successfully voted #{dv} on the #{@vote.name} vote."
+  end
+  def again_msg
+    ord = @vote && @vote.vote_ordinal or return
+    ord > 1 or return
+    num_prev = ord - 1
+    pluralize = 1 == num_prev ? 'vote' : 'votes' # @todo etc
+    "  (This vote overrides the previous " <<
+      "#{1 == num_prev ? '' : "#{num_prev} " }" <<
+      "#{pluralize} you have cast on this decision.)"
+  end
+  def public_identifier_msg
+    s = @vote && @vote.voter && @vote.voter.public_identifier
+    s && s != '' or return
+    "You used the voting token with the public identifier #{s.inspect}."
+  end
   def find_decision!
     slug = params['slug']
     if @decision = Decision.find_by_intern(slug)
       # @todo unhack!
-      @decision.question_type = :choice if /direlect/i =~ @decision.intern
+      @decision.question_type = :multi_choice if /direlect/i =~ @decision.intern
       true
     else
       decision_not_found slug
@@ -30,7 +49,7 @@ private
   end
   def decision_not_found slug
     @decision = Decision.new
-    @decision.errors.add('base', "There is no decision on recored with the name " <<
+    @decision.errors.add('base', "There is no decision on record with the name " <<
       "#{slug.inspect}")
     false # important
   end
@@ -41,7 +60,7 @@ private
   end
   def render_form
     if @decision.create_path && File.exist?(@decision.create_path)
-      populate_alternatives if :choice == @decision.question_type
+      populate_alternatives if :multi_choice == @decision.question_type
       render @decision.intern
     else
       @decision.errors.add('base', "for now we have no scaffolding for decisions. "<<
