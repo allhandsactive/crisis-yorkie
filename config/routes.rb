@@ -1,12 +1,11 @@
 Current::Application.routes.draw do
-  
+
   root :to => "home#index"
 
   resources :decisions
   resources :votes
   resources :voters
   resources :users
-  
 
   get 'admin' => 'admin#index'
 
@@ -16,7 +15,9 @@ Current::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  get 'decision/:slug' => 'decision#new'
 
+  post 'decision/:slug' => 'decision#create'
 
   # post 'decision/bylaws' => 'decision#create'
 

@@ -1,29 +1,11 @@
-<% content_for :javascripts, javascript_include_tag("decision.js")  -%>
-<form action='create' method='post'>
-<h1>Cast Your Vote!</h1>
+<% if @decision.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@decision.errors.count, "error") %> with showing decision:</h2>
 
-<div class='smug-subhead'>You are casting a vote for the AHA Director Elections 1.0</div>
-
-<div class='section'>
-  <div class='alternatives'>
-    <ul class="alternatives">
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexander Honkala</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexandra Glowaski</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Amanda Sari-Perez</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Josh Williams</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Katherine Nelson</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matthew Oishi</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matt Mayers</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nima Khazaei</li>
+    <ul>
+    <% @decision.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
     </ul>
   </div>
-  <div class="button-row">
-    <input class='submit-button' type="submit" value="Submit!" />
-  </div>
-</div>
-
-
-<div class="button-row">
-  <a href='/' class='nav'>&lt;- go back to decisions list</a></p>
-</div>
-</form>
+<% end %>

@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  skip_before_filter :authorize  
+  skip_before_filter :authorize
   # GET /votes
   # GET /votes.xml
   def index
@@ -13,14 +13,14 @@ class VotesController < ApplicationController
 
   # GET /votes/1
   # GET /votes/1.xml
-  def show
-    @vote = Vote.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @vote }
-    end
-  end
+  # def show
+  #   @vote = Vote.find(params[:id])
+  #
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.xml  { render :xml => @vote }
+  #   end
+  # end
 
   # GET /votes/new
   # GET /votes/new.xml
@@ -42,7 +42,7 @@ class VotesController < ApplicationController
   # POST /votes.xml
   # def create
   #   @vote = Vote.new(params[:vote]) # :token
-  #   
+  #
   #   respond_to do |format|
   #     if @vote.save
   #       # format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
