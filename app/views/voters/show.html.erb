@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Email:</b>
-  <%= @voter.email %>
-</p>
+<% f = nil; form_for(Voter.new) {|ff| f = ff } # @todo hack %>
 
-<p>
-  <b>Token:</b>
-  <%= @voter.token %>
-</p>
-
+<% @voter.class.ui_fields.map(&:intern).each do |k| %>
+  <p>
+    <b><%= f.label(k) %>:</b>
+    <%= @voter.send(k) %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_voter_path(@voter) %> |
 <%= link_to 'Back', voters_path %>

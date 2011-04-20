@@ -1,22 +1,59 @@
+<form action='/decision/<%= @decision.intern %>' method='post'>
 <% content_for :javascripts, javascript_include_tag("decision.js")  -%>
-<form action='create' method='post'>
 <h1>Cast Your Vote!</h1>
 
-<div class='smug-subhead'>You are casting a vote for the AHA Director Elections 1.0</div>
+<div class='smug-subhead'>
+  <p>You are casting a vote for the AHA Director Elections 1.0</p>
+  <p>The 5 accepting and winning candidates of this election <br />
+      will serve as AHA directors for a 6 month term (May-Oct. 2011).
+  </p>
+
+  <ul class='smaller-buttocks'>
+
+    <li>You must have a valid voting token to vote.</li>
+
+    <li>Don't even try to use this on your phone (one day!)</li>
+
+    <li>The voting window for this vote ends at <%= window_datetime(@decision.closed_at) %></li>
+
+    <li>The candidates below are presented in random order. (Reload page to see!)</li>
+
+    <li>You may cast or re-cast (change) your vote any time during the voting window.</li>
+
+    <li>Rank the candidates in your order of preference by dragging the rectangles up and down.</li>
+
+  </ul>
+</div>
 
 <div class='section'>
   <div class='alternatives'>
-    <ul class="alternatives">
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexander Honkala</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Alexandra Glowaski</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Amanda Sari-Perez</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Josh Williams</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Katherine Nelson</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matthew Oishi</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Matt Mayers</li>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nima Khazaei</li>
-    </ul>
+    <% if @alternatives.any? %>
+      <ul class="alternatives">
+        <% @alternatives.each do |alt| %>
+          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span class='ord'><%= alt.random_ordinal_index %>.</span><span class="label"><%= alt.name %></span></li>
+        <% end %>
+      </ul>
+    <% else %>
+    <span class='errmsg'>No Alternatives!</span>
+    <% end %>
   </div>
+  <table class='vert-form'><tbody>
+    <% if @vote && @vote.errors.any? %>
+      <%= render 'err_row' %>
+    <% end %>
+    <tr>
+      <th colspan='2'>Your voting token:
+      </th>
+    </tr>
+    <tr>
+      <td colspan='2'>
+        <input name='vote[human_hash]' size='50'/>
+        <div class='small-ass-instructions centered'>
+          Case sensitive.  Enter the Human Hash exactly as you received it.
+        </div>
+      </td>
+    </tr>
+  </tbody></table>
   <div class="button-row">
     <input class='submit-button' type="submit" value="Submit!" />
   </div>

@@ -59,6 +59,15 @@ ul.smaller-buttocks {
   margin-top: 1em;
 }
 
+.small-ass-instructions {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.centered {
+  text-align: center;
+}
+
 h2.common {
   color: #999;
   /*font-style: italic;*/
@@ -67,6 +76,25 @@ h2.common {
 
 div.section {
   margin: 60px auto 0 auto;
+}
+
+table.vert-form {
+  margin: 27px auto 0 auto;
+  padding: 5px;
+  border: 2px solid #ddd;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+table.vert-form th.label {
+  width: 40%;
+  text-align: right;
+  padding: 3px 5px;
+}
+
+table.vert-form td.input {
+  width: 40%;
+  padding: 3px 5px;
 }
 
 ul.ass {
@@ -107,7 +135,7 @@ ul.alternatives li {
   height: 18px;
 }
 
-ul.alternatives li span {
+ul.alternatives li span.ui-icon {
   position: absolute;
   margin-left: -1.3em;
 }
@@ -132,4 +160,13 @@ ul.alternatives li span {
 table.choice th {
   text-align: left;
   padding-left: 10px;
+}
+
+ul.alternatives li span.ord {
+  padding-right: 0.3em;
+  color: #777;
+}
+
+ul.alternatives li span.label {
+  color: #100;
 }

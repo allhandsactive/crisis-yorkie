@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @alternative.name %>
+</p>
+
+<p>
+  <b>Index:</b>
+  <%= @alternative.index %>
+</p>
+
+
+<%= link_to 'Edit', edit_alternative_path(@alternative) %> |
+<%= link_to 'Back', alternatives_path %>

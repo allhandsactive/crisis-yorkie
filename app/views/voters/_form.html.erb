@@ -11,14 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :token %><br />
-    <%= f.text_field :token %>
-  </div>
+
+  <% @voter.class.ui_fields.map(&:intern).each do |k| %>
+    <div class="field">
+      <%= f.label k %><br />
+      <%= f.text_field k %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

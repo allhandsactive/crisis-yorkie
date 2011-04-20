@@ -3,7 +3,8 @@ Current::Application.routes.draw do
   root :to => "home#index"
 
   resources :decisions
-  resources :votes
+  resources :alternatives
+  # resources :votes  # etc @todo
   resources :voters
   resources :users
 

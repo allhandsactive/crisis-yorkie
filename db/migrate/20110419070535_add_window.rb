@@ -5,5 +5,6 @@ class AddWindow < ActiveRecord::Migration
   end
 
   def self.down
+    # @todo
   end
 end

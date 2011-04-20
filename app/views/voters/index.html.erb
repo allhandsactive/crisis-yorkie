@@ -2,8 +2,10 @@
 
 <table>
   <tr>
-    <th>Email</th>
-    <th>Token</th>
+    <% v = Voter.new; f = nil; form_for(v) {|ff| f = ff } # @todo hack %>
+    <% v.class.ui_fields.map(&:intern).each do |k| %>
+      <th> <%= f.label(k) %> </th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +13,9 @@
 
 <% @voters.each do |voter| %>
   <tr>
-    <td><%= voter.email %></td>
-    <td><%= voter.token %></td>
+    <% Voter.ui_fields.map(&:intern).each do |k| %>
+      <td><%= voter.send(k) %></td>
+    <% end %>
     <td><%= link_to 'Show', voter %></td>
     <td><%= link_to 'Edit', edit_voter_path(voter) %></td>
     <td><%= link_to 'Destroy', voter, :confirm => 'Are you sure?', :method => :delete %></td>
