@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :authorize  # @todo
+  # skip_before_filter :authorize  # without this we will need a seed task
+
   # GET /users
   # GET /users.xml
   def index
