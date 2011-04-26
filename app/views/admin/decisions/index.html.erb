@@ -17,13 +17,13 @@
     <td><%= decision.intern %></td>
     <td><%= decision.open_at %></td>
     <td><%= decision.closed_at %></td>
-    <td><%= link_to 'Show', decision %></td>
-    <td><%= link_to 'Edit', edit_decision_path(decision) %></td>
-    <td><%= link_to 'Destroy', decision, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_decision_path(decision) %></td>
+    <td><%= link_to 'Edit', edit_admin_decision_path(decision) %></td>
+    <td><%= link_to 'Destroy', admin_decision_path(decision), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Decision', new_decision_path %>
+<%= link_to 'New Decision', new_admin_decision_path %>

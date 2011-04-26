@@ -7,8 +7,6 @@
     <th>Decision</th>
     <th>Value</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @votes.each do |vote| %>
@@ -17,13 +15,7 @@
     <td><%= vote.vote_ordinal %></td>
     <td><%= vote.decision_id %></td>
     <td><%= vote.value %></td>
-    <td><%= link_to 'Show', vote %></td>
-    <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
-    <td><%= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_vote_path(vote) %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Vote', new_vote_path %>

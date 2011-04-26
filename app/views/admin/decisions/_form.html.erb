@@ -1,4 +1,4 @@
-<%= form_for(@decision) do |f| %>
+<%= form_for([:admin, @decision]) do |f| %>
   <% if @decision.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@decision.errors.count, "error") %> prohibited this decision from being saved:</h2>

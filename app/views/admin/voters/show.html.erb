@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% f = nil; form_for(Voter.new) {|ff| f = ff } # @todo hack %>
+<% f = nil; form_for(:admin, Voter.new) {|ff| f = ff } # @todo hack %>
 
 <% @voter.class.ui_fields.map(&:intern).each do |k| %>
   <p>
@@ -9,5 +9,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_voter_path(@voter) %> |
-<%= link_to 'Back', voters_path %>
+<%= link_to 'Edit', edit_admin_voter_path(@voter) %> |
+<%= link_to 'Back', admin_voters_path %>

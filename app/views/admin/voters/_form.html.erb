@@ -1,4 +1,4 @@
-<%= form_for(@voter) do |f| %>
+<%= form_for([:admin, @voter]) do |f| %>
   <% if @voter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@voter.errors.count, "error") %> prohibited this voter from being saved:</h2>

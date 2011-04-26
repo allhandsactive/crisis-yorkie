@@ -9,17 +9,17 @@
     <th></th>
   </tr>
 
-<% @alternatives.each do |alternative| %>
+<% @alternatives.each do |a| %>
   <tr>
-    <td><%= alternative.name %></td>
-    <td><%= alternative.index %></td>
-    <td><%= link_to 'Show', alternative %></td>
-    <td><%= link_to 'Edit', edit_alternative_path(alternative) %></td>
-    <td><%= link_to 'Destroy', alternative, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= a.name %></td>
+    <td><%= a.index %></td>
+    <td><%= link_to 'Show', admin_alternative_path(a) %></td>
+    <td><%= link_to 'Edit', edit_admin_alternative_path(a) %></td>
+    <td><%= link_to 'Destroy', admin_alternative_path(a), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Alternative', new_alternative_path %>
+<%= link_to 'New Alternative', new_admin_alternative_path %>
