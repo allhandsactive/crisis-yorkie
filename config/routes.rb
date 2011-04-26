@@ -2,30 +2,27 @@ Current::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :decisions
-  resources :alternatives
-  # resources :votes  # etc @todo
-  resources :voters
-  resources :users
+  controller :sessions do
+    get    'login'  => :new
+    post   'login'  => :create
+    delete 'logout' => :destroy
+  end
 
   get 'admin' => 'admin#index'
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+  namespace :admin do
+    resources :alternatives
+    resources :decisions
+    resources :users
+    resources :voters
+    resources :votes, :except => [:new, :create, :edit, :update, :destroy]
   end
+
+  resources :decision, :except => [:index, :create, :new, :show, :update, :edit, :destroy]
 
   get 'decision/:slug' => 'decision#new'
 
   post 'decision/:slug' => 'decision#create'
-
-  # post 'decision/bylaws' => 'decision#create'
-
-  # match 'decision/bylaws' => 'decision#bylaws'
-
-  # match 'decision/:slug' => 'decision#new'
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
