@@ -1,4 +1,4 @@
-<div class="depot_form">
+<div class="thanks-dhh">
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
@@ -7,20 +7,21 @@
     <fieldset>
       <legend>Please Log In</legend>
 
-			<table><tbody>
+			<table class='vert-form'><tbody>
 				<tr>
-					<th><label for="name">Name:</label></th>
+					<th class='label'><label for="name">Name:</label></th>
 					<td> <%= text_field_tag :name, params[:name] %> </td>
 				</tr>
 				<tr>
-          <th><label for="password">Password:</label></th>
+          <th class='label'><label for="password">Password:</label></th>
           <td><%= password_field_tag :password, params[:password] %> </td>
         </tr>
      </tbody></table>
 
-      <div class='actions'>
+      <div class='button-row'>
         <%= submit_tag "Login" %>
       </div>
+      <br />
 
     </fieldset>
   <% end %>
