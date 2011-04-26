@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Current</title>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/javascripts/development-bundle/themes/base/jquery.ui.theme.css" %>
+  <%= javascript_include_tag "jquery.min.js" %>
+  <%= javascript_include_tag "jquery-ui.min.js" %>
+  <%= javascript_include_tag "rails.js" %>
+  <%= yield :javascripts %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class='roundie'>
+<%= render 'admin/nav' %>
+<%= yield %>
+</div>
+<div class='copyright'>
+  powered by <a href='https://github.com/allhandsactive/crisis-yorkie'>crisis-yorkie</a> v.0.1.0
+</div>
+</body>
+</html>

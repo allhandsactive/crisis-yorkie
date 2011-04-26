@@ -1,0 +1,17 @@
+<% ! defined?(actions) and actions = :all %>
+<% :all == actions and actions = [[nil, 'List'], ['new', 'New']] %>
+<% ! defined?(entity) and entity = /(?:^|_)([^_]+)\z/.match(stem)[1] %>
+<ul>
+  <% actions.each do |action| %>
+  <li>
+    <%  if Array === action
+          _action, label = action
+        else
+          _action = label = action
+        end
+        _entity = _action.nil? ? "#{entity}s" : entity
+    %>
+    <a href="<%= nav_link(stem, _action) %>"><%= "#{label} #{_entity}" %></a>
+  </li>
+  <% end %>
+</ul>

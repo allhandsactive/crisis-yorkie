@@ -1,0 +1,26 @@
+<ul class='h-nav'>
+
+  <li><a href='<%= admin_decisions_path %>'>decisions</a>
+    <%= render 'admin/nav1', :stem => 'admin_decision' %>
+  </li>
+
+  <li><a href='<%= admin_alternatives_path %>'>alternatives</a>
+    <%= render 'admin/nav1', :stem => 'admin_alternative' %>
+  </li>
+
+  <li><a href='<%= admin_voters_path %>'>voters</a>
+    <%= render 'admin/nav1', :stem => 'admin_voter' %>
+  </li>
+
+  <li><a href='<%= admin_votes_path %>'>votes</a>
+    <%= render 'admin/nav1', :stem => 'admin_vote', :actions => [[nil, 'list']] %>
+  </li>
+
+  <li><a href='<%= admin_users_path %>'>users</a>
+    <%= render 'admin/nav1', :stem => 'admin_user'  %>
+  </li>
+
+  <li style='float: right'>
+    <%= link_to 'logout', logout_path, :method => :delete, :class => 'officious' %>
+  </li>
+</ul>
