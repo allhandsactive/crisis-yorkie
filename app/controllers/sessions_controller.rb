@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    s = (u = User.find(session[:user_id])) ? " #{u.name}" : "";
     session[:user_id] = nil
-    redirect_to store_url, :notice => "Logged out"
+    redirect_to root_url, :notice => "Logged out#{s}."
   end
 
 end
